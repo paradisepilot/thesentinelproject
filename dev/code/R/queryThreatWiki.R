@@ -6,8 +6,8 @@ queryThreatWiki <- function(
 	require(RCurl);
 	require(rjson);
 
-	my.json.string <- getURL(paste0(api.url,"/datapoint"));
-	my.json        <- fromJSON(json_str = my.json.string);
+	my.json.string <- RCurl::getURL(paste0(api.url,"/datapoint"));
+	my.json        <- rjson::fromJSON(json_str = my.json.string);
 	DF.ThreatWiki  <- .convert.ThreatWiki.json.to.data.frame(LIST.json = my.json);
 
 	}
